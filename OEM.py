@@ -1,6 +1,5 @@
 import time
 
-# Definindo Constantes
 velocidade_luz = 3e8
 pi = 3.14159265358979323846
 
@@ -162,6 +161,13 @@ def calcular_campo_eletrico():
     print("===========================================")
     time.sleep(1)
 
+def calcular_intensidade(campo_eletrico, campo_magnetico):
+    intensidade = 0.5 * campo_eletrico * campo_magnetico
+    print("\n============= RESULTADOS ================")
+    print(f"A Intensidade da onda é: {intensidade:.3e} W/m^2")
+    print("\n=========================================")
+    time.sleep(1)
+
 # Calcular número de onda
 def calcular_numero_onda(numero_onda):
     comprimento_onda = 2 * pi / numero_onda
@@ -194,7 +200,7 @@ def calcular_frequencia_angular(frequencia_angular):
 
 def menu():
     while True:
-        print("\n[+] Escolha uma das opções:\n [c] - Entrar com comprimento de onda\n [f] - Entrar com frequência\n [w] - Entrar com frequência angular\n [k] - Entrar com número de onda\n [em] - Entrar com o campo elétrico \n [cm] - Entrar com o campo magnético \n [s] - Sair \n")
+        print("\n[+] Escolha uma das opções:\n [c] - Entrar com comprimento de onda\n [f] - Entrar com frequência\n [w] - Entrar com frequência angular\n [k] - Entrar com número de onda\n [em] - Entrar com o campo elétrico \n [cm] - Entrar com o campo magnético  \n [i] - Calcular Intensidade \n [s] - Sair \n")
         opcao = input(">> ")
 
         if opcao == "f" or opcao == "F":
@@ -218,10 +224,14 @@ def menu():
             frequencia_angular = float(input("Insira a Frequência Angular (rad/s): "))
             calcular_frequencia_angular(frequencia_angular)
 
+        elif opcao == "I" or opcao == "i":
+            campo_eletrico = float(input("Digite o valor do Campo Elétrico (V/m): "))
+            campo_magnetico = float(input("Digite o valor do Campo Magnético (T): "))
+            calcular_intensidade(campo_eletrico, campo_magnetico)
+
+
         elif opcao == 's' or opcao == 'S':
             print("Encerrando...")
             time.sleep(1)
             break
-
-
 menu()
