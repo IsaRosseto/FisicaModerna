@@ -3,6 +3,13 @@ import time
 velocidade_luz = 3e8
 pi = 3.14159265358979323846
 
+# Mensagem de Abertura
+print("\nBem-vindo ao Programa de Análise de Ondas Eletromagnéticas!")
+print("Desenvolvido por Isabella Vieira Silva Rosseto (RA: 22.222.036-0) e Gustavo Bertoluzzi Cardoso (RA: 22.123.016-2)\n")
+print("Este programa permite calcular propriedades de ondas eletromagnéticas, como frequência, comprimento de onda,")
+print("número de onda, frequência angular, campo elétrico, campo magnético e intensidade da onda.\n")
+
+
 # TIPO DE ONDA - FREQUENCIA
 def determinar_tipo_onda(comprimento_freq):
     tipo_onda = ""
@@ -47,49 +54,50 @@ def calcular_frequencia(freq):
 
     tipo_onda = determinar_tipo_onda(comprimento_freq)
 
-    valor_unidade = determinar_unidade(comprimento_freq, tipo_onda)
+    valor_unidade, unidade = determinar_unidade(comprimento_freq, tipo_onda)
 
-    print("\n============= RESULTADOS ================")
-    print("Comprimento da onda: %.2f %s" % (valor_unidade))
-    print(f"Sua Frequência é de: {freq:0.2e} Hz")
-    print(f"Seu K é: {k:0.2e} rad/m")
-    print(f"Seu W é: {w:0.2e} rad/s")
+    print("\n********** RESULTADOS **********")
+    print(f"Comprimento da onda: {valor_unidade:.2e} {unidade}")
+    print(f"Sua Frequência é de: {freq:.2e} Hz")
+    print(f"Seu K é: {k:.2e} rad/m")
+    print(f"Seu W é: {w:.2e} rad/s")
     print("Tipo de onda: %s" % tipo_onda)
-    print("\n=========================================")
+    print("\n******************************")
     time.sleep(1)
+
 
 # UNIDADE DO COMPRIMENTO
 def obter_unidade_comprimento():
     while True:
-        print("=== Unidades ===")
+        print("*** Unidades ***")
         print("[1] - Nânometro")
         print("[2] - Micrometro")
         print("[3] - Milimetro")
         print("[4] - Metro")
         print("[5] - Kilômetro")
         print("[0] - Sair")
-        opcao = int(input("[+] Digite a opção da unidade desejada: "))
+        opcao = int(input("* Digite a opção da unidade desejada: "))
         if opcao >= 1 or opcao <= 5:
             if opcao == 1:
-                comprimento = float(input("[+] Digite o valor do Comprimento da onda: "))
+                comprimento = float(input("* Digite o valor do Comprimento da onda: "))
                 unidade = "Nanômetros(nm)"
                 comprimento /= 1e+09
                 calcular_comprimento(comprimento, unidade)
                 break
             elif opcao == 2:
-                comprimento = float(input("[+] Digite o valor do Comprimento da onda: "))
+                comprimento = float(input("* Digite o valor do Comprimento da onda: "))
                 unidade = "Micrômetros(um)"
                 comprimento /= 1e+06
                 calcular_comprimento(comprimento, unidade)
                 break
             elif opcao == 3:
-                comprimento = float(input("[+] Digite o valor do Comprimento da onda: "))
+                comprimento = float(input("* Digite o valor do Comprimento da onda: "))
                 unidade = "Milímetro(mm)"
                 comprimento /= 1000
                 calcular_comprimento(comprimento, unidade)
                 break
             elif opcao == 4:
-                comprimento = float(input("[+] Digite o valor do Comprimento da onda: "))
+                comprimento = float(input("* Digite o valor do Comprimento da onda: "))
                 unidade = "Metros(m)"
                 calcular_comprimento(comprimento, unidade)
                 break
@@ -103,7 +111,7 @@ def obter_unidade_comprimento():
                 time.sleep(1)
                 break
         else:
-            print("\n=== Opção inválida! Digite novamente os dados! ===")
+            print("\n*** Opção inválida! Digite novamente os dados! ***")
             continue
 
 # TIPO DE ONDA - COMPRIMENTO
@@ -134,39 +142,33 @@ def calcular_comprimento(comprimento, unidade):
     w = 2 * pi / t
     tipo_onda = determinar_tipo_onda_comprimento(frequencia)
 
-    print("\n============= RESULTADOS ================")
+    print("\n********** RESULTADOS **********")
     print("Tipo de onda: %s" % tipo_onda)
     print(f"Com seu comprimento de: {comprimento} {unidade}")
     print(f"Sua frequência é: {frequencia:0.2e}")
     print(f"Seu k é: {k:0.2e} rad/m")
     print(f"Seu w é: {w:0.2e} rad/s")
-    print("\n=========================================")
+    print("\n******************************")
     time.sleep(1)
 
 # Calcular o campo magnético
 def calcular_campo_magnetico():
-    campo_eletrico_max = float(input("Digite o campo elétrico máximo: "))
+    campo_eletrico_max = float(input("* Digite o campo elétrico máximo (em V/m): "))
     campo_magnetico_max = campo_eletrico_max / velocidade_luz
-    print("\n============= RESULTADOS ================")
+    print("\n********** RESULTADOS **********")
     print(f"Valor do campo magnético: {campo_magnetico_max:.2e} T")
-    print("\n=========================================")
+    print("\n******************************")
     time.sleep(1)
 
 # Calcular o Campo Elétrico
 def calcular_campo_eletrico():
-    campo_magnetico_max = float(input("Digite o campo magnético máximo: "))
+    campo_magnetico_max = float(input("* Digite o campo magnético máximo (em T): "))
     campo_eletrico_max = velocidade_luz * campo_magnetico_max
-    print("\n============= RESULTADOS ================")
+    print("\n********** RESULTADOS **********")
     print(f"Valor do campo elétrico: {campo_eletrico_max:.2e} V/m")
-    print("===========================================")
+    print("******************************")
     time.sleep(1)
 
-def calcular_intensidade(campo_eletrico, campo_magnetico):
-    intensidade = 0.5 * campo_eletrico * campo_magnetico
-    print("\n============= RESULTADOS ================")
-    print(f"A Intensidade da onda é: {intensidade:.3e} W/m^2")
-    print("\n=========================================")
-    time.sleep(1)
 
 # Calcular número de onda
 def calcular_numero_onda(numero_onda):
@@ -174,13 +176,13 @@ def calcular_numero_onda(numero_onda):
     frequencia = velocidade_luz / comprimento_onda
     w = 2 * pi * frequencia
 
-    print("\n============= RESULTADOS ================")
+    print("\n********** RESULTADOS **********")
     print("Tipo de onda: ", determinar_tipo_onda(comprimento_onda))
     print(f"Sua Frequência é de: {frequencia:0.2e} Hz")
     print(f"Seu Comprimento é de: {comprimento_onda:0.2e} m")
     print(f"Seu K é: {numero_onda:0.2e} rad/m")
     print(f"Seu W é: {w:0.2e} rad/s")
-    print("\n=========================================")
+    print("\n******************************")
     time.sleep(1)
 
 def calcular_frequencia_angular(frequencia_angular):
@@ -189,18 +191,19 @@ def calcular_frequencia_angular(frequencia_angular):
     k = (2 * pi) / comprimento_angular
     comprimento_onda = comprimento_angular
 
-    print("\n============= RESULTADOS ================")
+    print("\n********** RESULTADOS **********")
     print("Tipo de onda: ", determinar_tipo_onda(comprimento_onda))
     print(f"Sua frequência é de: {frequencia:0.2e} Hz")
     print(f"Seu Comprimento é de: {comprimento_onda:0.2e} m")
     print(f"Seu K é: {k:0.2e} rad/m")
     print(f"Seu W é: {frequencia_angular:0.2e} rad/s")
-    print("\n=========================================")
+    print("\n******************************")
     time.sleep(1)
+
 
 def menu():
     while True:
-        print("\n[+] Escolha uma das opções:\n [c] - Entrar com comprimento de onda\n [f] - Entrar com frequência\n [w] - Entrar com frequência angular\n [k] - Entrar com número de onda\n [em] - Entrar com o campo elétrico \n [cm] - Entrar com o campo magnético  \n [i] - Calcular Intensidade \n [s] - Sair \n")
+        print("\n*Escolha uma das opções:\n [c] - Entrar com comprimento de onda\n [f] - Entrar com frequência\n [w] - Entrar com frequência angular\n [k] - Entrar com número de onda\n [em] - Calcular campo elétrico \n [bm] - Calcular campo magnético\n [i] - Calcular intensidade\n [s] - Sair \n")
         opcao = input(">> ")
 
         if opcao == "f" or opcao == "F":
@@ -210,11 +213,16 @@ def menu():
         elif opcao == 'c' or opcao == 'C':
             obter_unidade_comprimento()
 
-        elif opcao == "CM" or opcao == "cm":
+        elif opcao == "BM" or opcao == "bm":
             calcular_campo_magnetico()
 
         elif opcao == "EM" or opcao == "em":
             calcular_campo_eletrico()
+
+        elif opcao == "I" or opcao == "i":
+            entrada = input("Digite a entrada (EM, BM ou I): ")
+            valor = float(input("Digite o valor: "))
+            calcular_intensidade(entrada, valor)
 
         elif opcao == "k" or opcao == "K":
             numero_onda = float(input("Insira o número de onda desejado (rad/m): "))
@@ -224,14 +232,9 @@ def menu():
             frequencia_angular = float(input("Insira a Frequência Angular (rad/s): "))
             calcular_frequencia_angular(frequencia_angular)
 
-        elif opcao == "I" or opcao == "i":
-            campo_eletrico = float(input("Digite o valor do Campo Elétrico (V/m): "))
-            campo_magnetico = float(input("Digite o valor do Campo Magnético (T): "))
-            calcular_intensidade(campo_eletrico, campo_magnetico)
-
-
         elif opcao == 's' or opcao == 'S':
             print("Encerrando...")
             time.sleep(1)
             break
+
 menu()
