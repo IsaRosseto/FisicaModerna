@@ -200,6 +200,25 @@ def calcular_frequencia_angular(frequencia_angular):
     print("\n******************************")
     time.sleep(1)
 
+# Calcular intensidade
+def calcular_intensidade(entrada, valor):
+    if entrada.lower() == 'em':
+        cMag = valor / velocidade_luz
+        intensidade = (valor * cMag) / (2 * (4 * 10**-7 * pi))
+        print("\n********** RESULTADOS **********")
+        print(f"Intensidade: {intensidade:.2f} W/m²")
+        print(f"Campo Magnetico: {cMag:.2e} T")
+        print("\n******************************")
+    elif entrada.lower() == 'bm':
+        cEle = valor * velocidade_luz
+        intensidade = (valor * cEle) / (2 * (4 * pi * 10**-7))
+        print("\n********** RESULTADOS **********")
+        print(f"Intensidade: {intensidade:.2f} W/m²")
+        print(f"Campo Eletrico: {cEle:.2e} V/m")
+        print("\n******************************")
+        time.sleep(1)
+    else:
+        print("Unidade inválida. Por favor, utilize 'em' para campo elétrico ou 'bm' para campo magnético.")
 
 def menu():
     while True:
@@ -220,7 +239,7 @@ def menu():
             calcular_campo_eletrico()
 
         elif opcao == "I" or opcao == "i":
-            entrada = input("Digite a entrada (EM, BM ou I): ")
+            entrada = input("Digite a entrada (EM ou BM): ")
             valor = float(input("Digite o valor: "))
             calcular_intensidade(entrada, valor)
 
