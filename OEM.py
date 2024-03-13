@@ -151,24 +151,6 @@ def calcular_comprimento(comprimento, unidade):
     print("\n******************************")
     time.sleep(1)
 
-# Calcular o campo magnético
-def calcular_campo_magnetico():
-    campo_eletrico_max = float(input("* Digite o campo elétrico máximo (em V/m): "))
-    campo_magnetico_max = campo_eletrico_max / velocidade_luz
-    print("\n********** RESULTADOS **********")
-    print(f"Valor do campo magnético: {campo_magnetico_max:.2e} T")
-    print("\n******************************")
-    time.sleep(1)
-
-# Calcular o Campo Elétrico
-def calcular_campo_eletrico():
-    campo_magnetico_max = float(input("* Digite o campo magnético máximo (em T): "))
-    campo_eletrico_max = velocidade_luz * campo_magnetico_max
-    print("\n********** RESULTADOS **********")
-    print(f"Valor do campo elétrico: {campo_eletrico_max:.2e} V/m")
-    print("******************************")
-    time.sleep(1)
-
 
 # Calcular número de onda
 def calcular_numero_onda(numero_onda):
@@ -217,12 +199,20 @@ def calcular_intensidade(entrada, valor):
         print(f"Campo Eletrico: {cEle:.2e} V/m")
         print("\n******************************")
         time.sleep(1)
+    elif entrada.lower() == 'i':
+        cMag = (2 * valor * (4 * pi * 10**-7)/ velocidade_luz)**0.5
+        cEle = cMag * velocidade_luz
+        print("\n********** RESULTADOS **********")
+        print(f"Campo Elétrico: {cEle:.2e} V/m")
+        print(f"Campo Magnético: {cMag:.2e} T")
+        print("\n******************************")
+        time.sleep(1)
     else:
         print("Unidade inválida. Por favor, utilize 'em' para campo elétrico ou 'bm' para campo magnético.")
 
 def menu():
     while True:
-        print("\n*Escolha uma das opções:\n [c] - Entrar com comprimento de onda\n [f] - Entrar com frequência\n [w] - Entrar com frequência angular\n [k] - Entrar com número de onda\n [em] - Calcular campo elétrico \n [bm] - Calcular campo magnético\n [i] - Calcular intensidade\n [s] - Sair \n")
+        print("\n*Escolha uma das opções:\n [c] - Entrar com comprimento de onda\n [f] - Entrar com frequência\n [w] - Entrar com frequência angular\n [k] - Entrar com número de onda\n [i] - Calcular intensidade,campo magnético ou campo elétrico\n [s] - Sair \n")
         opcao = input(">> ")
 
         if opcao == "f" or opcao == "F":
@@ -232,14 +222,8 @@ def menu():
         elif opcao == 'c' or opcao == 'C':
             obter_unidade_comprimento()
 
-        elif opcao == "BM" or opcao == "bm":
-            calcular_campo_magnetico()
-
-        elif opcao == "EM" or opcao == "em":
-            calcular_campo_eletrico()
-
         elif opcao == "I" or opcao == "i":
-            entrada = input("Digite a entrada (EM ou BM): ")
+            entrada = input("Digite a entrada (I, EM ou BM): ")
             valor = float(input("Digite o valor: "))
             calcular_intensidade(entrada, valor)
 
