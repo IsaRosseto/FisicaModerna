@@ -59,8 +59,8 @@ def calcular_frequencia(freq):
     print("\n********** RESULTADOS **********")
     print(f"Comprimento da onda: {valor_unidade:.2e} {unidade}")
     print(f"Sua Frequência é de: {freq:.2e} Hz")
-    print(f"Seu K é: {k:.2e} rad/m")
-    print(f"Seu W é: {w:.2e} rad/s")
+    print(f"Seu K (numero de ondas) é: {k:.2e} rad/m")
+    print(f"Seu W (frequencia angular) é: {w:.2e} rad/s")
     print("Tipo de onda: %s" % tipo_onda)
     print("\n******************************")
     time.sleep(1)
@@ -145,9 +145,9 @@ def calcular_comprimento(comprimento, unidade):
     print("\n********** RESULTADOS **********")
     print("Tipo de onda: %s" % tipo_onda)
     print(f"Com seu comprimento de: {comprimento} {unidade}")
-    print(f"Sua frequência é: {frequencia:0.2e}")
-    print(f"Seu k é: {k:0.2e} rad/m")
-    print(f"Seu w é: {w:0.2e} rad/s")
+    print(f"Sua frequência é: {frequencia:0.2e} Hz")
+    print(f"Seu k (numero de ondas) é: {k:0.2e} rad/m")
+    print(f"Seu w (frequencia angular) é: {w:0.2e} rad/s")
     print("\n******************************")
     time.sleep(1)
 
@@ -162,8 +162,8 @@ def calcular_numero_onda(numero_onda):
     print("Tipo de onda: ", determinar_tipo_onda(comprimento_onda))
     print(f"Sua Frequência é de: {frequencia:0.2e} Hz")
     print(f"Seu Comprimento é de: {comprimento_onda:0.2e} m")
-    print(f"Seu K é: {numero_onda:0.2e} rad/m")
-    print(f"Seu W é: {w:0.2e} rad/s")
+    print(f"Seu K (numero de ondas) é: {numero_onda:0.2e} rad/m")
+    print(f"Seu W (frequencia angular) é: {w:0.2e} rad/s")
     print("\n******************************")
     time.sleep(1)
 
@@ -177,8 +177,8 @@ def calcular_frequencia_angular(frequencia_angular):
     print("Tipo de onda: ", determinar_tipo_onda(comprimento_onda))
     print(f"Sua frequência é de: {frequencia:0.2e} Hz")
     print(f"Seu Comprimento é de: {comprimento_onda:0.2e} m")
-    print(f"Seu K é: {k:0.2e} rad/m")
-    print(f"Seu W é: {frequencia_angular:0.2e} rad/s")
+    print(f"Seu K (numero de ondas) é: {k:0.2e} rad/m")
+    print(f"Seu W (frequencia angular) é: {frequencia_angular:0.2e} rad/s")
     print("\n******************************")
     time.sleep(1)
 
@@ -190,6 +190,7 @@ def calcular_intensidade(entrada, valor):
         print("\n********** RESULTADOS **********")
         print(f"Intensidade: {intensidade:.2f} W/m²")
         print(f"Campo Magnetico: {cMag:.2e} T")
+        print(f"Campo Eletrico: {valor:.2e} V/m")
         print("\n******************************")
     elif entrada.lower() == 'bm':
         cEle = valor * velocidade_luz
@@ -197,6 +198,7 @@ def calcular_intensidade(entrada, valor):
         print("\n********** RESULTADOS **********")
         print(f"Intensidade: {intensidade:.2f} W/m²")
         print(f"Campo Eletrico: {cEle:.2e} V/m")
+        print(f"Campo Magnético: {valor:.2e} T")
         print("\n******************************")
         time.sleep(1)
     elif entrada.lower() == 'i':
@@ -205,6 +207,7 @@ def calcular_intensidade(entrada, valor):
         print("\n********** RESULTADOS **********")
         print(f"Campo Elétrico: {cEle:.2e} V/m")
         print(f"Campo Magnético: {cMag:.2e} T")
+        print(f"Intensidade: {valor:.2f} W/m²")
         print("\n******************************")
         time.sleep(1)
     else:
@@ -216,14 +219,14 @@ def menu():
         opcao = input(">> ")
 
         if opcao == "f" or opcao == "F":
-            frequencia = float(input("Digite o valor da Frequência da onda: "))
+            frequencia = float(input("Digite o valor da Frequência da onda em Hz: "))
             calcular_frequencia(frequencia)
 
         elif opcao == 'c' or opcao == 'C':
             obter_unidade_comprimento()
 
         elif opcao == "I" or opcao == "i":
-            entrada = input("Digite a entrada (I, EM ou BM): ")
+            entrada = input("Digite a entrada (I, BM ou EM): ")
             valor = float(input("Digite o valor: "))
             calcular_intensidade(entrada, valor)
 
