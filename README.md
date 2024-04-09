@@ -6,9 +6,6 @@
 <p align="center">
   <strong>Um programa Python para análise de propriedades de ondas eletromagnéticas!</strong>
 </p>
- <p style="text-align: center;">
-        <strong>Um programa Python para análise de propriedades de ondas eletromagnéticas!</strong>
-    </p>
 
   <h2>Desenvolvedores 👩‍💻👨‍💻</h2>
 
