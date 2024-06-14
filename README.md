@@ -1,11 +1,11 @@
-<h1 align="center">🌐 Programa de Análise de Ondas Eletromagnéticas 🌐</h1>
+ # 🌟 **Projetos de Física com Python** 🌟
+
+Bem-vindo ao repositório dos **Projetos de Física com Python**! Este projeto foi desenvolvido por Isabella Vieira Silva Rosseto, Gustavo Bertoluzzi Cardoso e Larissa Santos Fiuza. Aqui você encontrará três programas distintos que exploram diferentes fenômenos físicos utilizando Python.<
 <p align="center">
   <img src="https://img.shields.io/github/license/IsaRosseto/FisicaModerna.svg" alt="Licença">
   <img src="https://img.shields.io/github/languages/top/IsaRosseto/FisicaModerna.svg" alt="Linguagem">
 </p>
-<p align="center">
-  <strong>Um programa Python para análise de propriedades de ondas eletromagnéticas!</strong>
-</p>
+
 
   <h2>Desenvolvedores 👩‍💻👨‍💻</h2>
 
@@ -14,36 +14,81 @@
         <li><strong>Gustavo Bertoluzzi Cardoso</strong> (RA: 22.123.016-2)</li>
   </ul>
 
-  <h2>Funcionalidades 🛠️</h2>
 
-  <p>O programa oferece as seguintes funcionalidades:</p>
 
-  <ol>
-        <li><strong>Cálculo da Frequência:</strong> O usuário pode inserir a frequência da onda e o programa calculará o comprimento de onda, o número de onda, a frequência angular e o tipo de onda.</li>
-        <li><strong>Cálculo do Comprimento de Onda:</strong> Permite ao usuário inserir o comprimento de onda em diferentes unidades (nanômetros, micrômetros, milímetros, metros e quilômetros) e calcular a frequência, o número de onda, a frequência angular e o tipo de onda.</li>
-        <li><strong>Cálculo do Número de Onda:</strong> O usuário insere o número de onda e o programa calcula a frequência, o comprimento de onda, a frequência angular e o tipo de onda.</li>
-        <li><strong>Cálculo da Frequência Angular:</strong> Permite inserir a frequência angular e calcular a frequência, o comprimento de onda, o número de onda e o tipo de onda.</li>
-        <li><strong>Cálculo da Intensidade:</strong> Permite calcular a intensidade da onda, o campo elétrico ou o campo magnético, a partir de valores fornecidos pelo usuário.</li>
-    </ol>
+## 📋 **Descrição dos Programas**
 
-<h2>Requisitos 📋</h2>
+### 1. **Programa de Análise de Ondas Eletromagnéticas**
+Este programa permite calcular propriedades de ondas eletromagnéticas, como frequência, comprimento de onda, número de onda, frequência angular, campo elétrico, campo magnético e intensidade da onda.
 
-  <p>Python 3.x</p>
+### 2. **Átomo de Bohr e Quantização**
+Este programa estuda o modelo de Bohr para o átomo de hidrogênio. Os cálculos incluem raio da órbita, velocidade, comprimento de onda de De Broglie do elétron, energia cinética, potencial e total.
 
-  <h2>Como Usar ▶️</h2>
+### 3. **Cálculo de Polarização da Luz**
+Este programa calcula a intensidade da luz em W/cm² após passar por um ou mais polarizadores, aplicando a Lei da Metade e a Lei de Malus para simular a polarização da luz.
 
-<ol>
-        <li>Clone o repositório para sua máquina local:</li>
-        <code>git clone https://github.com/IsaRosseto/FisicaModerna</code>
-        <li>Navegue até o diretório do projeto:</li>
-        <code>cd FisicaModerna</code>
-        <li>Execute o programa:</li>
-        <code>python OEM.py</code>
-        <li>Siga as instruções fornecidas no terminal para usar o programa.</li>
-    </ol>
 
-  <h2>Licença 📝</h2>
+## 🛠️ **Funções Principais**
 
-  <p>Este projeto está licenciado sob a <a href="https://opensource.org/licenses/MIT">Licença MIT</a>.</p>
+### Programa de Análise de Ondas Eletromagnéticas
+
+- `determinar_tipo_onda(comprimento_freq)`
+- `calcular_frequencia(freq)`
+- `calcular_intensidade(entrada, valor)`
+- `menu()`
+
+### Átomo de Bohr e Quantização
+
+- `calcular_tudo_por_n(n)`
+- `calcular_transicao()`
+- `calcular_energia_por_frequencia_lambda(freq, lambda_)`
+- `calcular_ffoton_lambdafoton_por_efoton(Efoton_j, Efoton_ev)`
+- `mostrar_menu()`
+- `executar_programa()`
+
+### Cálculo de Polarização da Luz
+
+- `cosseno_quadrado(angulo)`
+- `intensidade_apos_um_polarizador(I0)`
+- `intensidade_antes_um_polarizador(I1)`
+- `dois_polarizadores(I0, angulo1, angulo2)`
+- `tres_polarizadores(I0, angulo1, angulo2, angulo3)`
+- `calcula_intensidade_incidente(I_post, angulo1, angulo2=None, angulo3=None)`
+- `fracao_luz_polarizadores(angulo1, angulo2, angulo3=None)`
+- `mostrar_informacoes()`
+- `menu_principal()`
+
+## 🌟 **Recursos Adicionais**
+
+### Programa de Análise de Ondas Eletromagnéticas
+
+- **Velocidade da Luz**: \(3 \times 10^8\) m/s
+- **Constante Pi**: 3.141592653589793
+
+### Átomo de Bohr e Quantização
+
+- **Constante de Planck**: \(6.626 \times 10^{-34}\) J·s
+- **Velocidade da Luz**: \(3 \times 10^8\) m/s
+- **Massa do Elétron**: \(9.11 \times 10^{-31}\) kg
+- **Carga do Elétron**: \(1.602 \times 10^{-19}\) C
+- **Constante de Permissividade do Vácuo**: \(8.854 \times 10^{-12}\) F/m
+- **Constante Pi**: 3.1416
+
+### Cálculo de Polarização da Luz
+
+- **Constante Pi**: 3.1416
+
+## 🤝 **Contribuições**
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 📄 **Licença**
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+---
+
+🌟 **Divirta-se explorando a física com Python!** 🌟
+
 </body>
 </html>
