@@ -13,13 +13,13 @@ Este programa calcula a intensidade da luz em W/cm² após passar por um ou mais
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/LightPolarization.git
-    cd LightPolarization
+    git clone https://github.com/seu-usuario/NL3A.git
+    cd NL3A
     ```
 
 2. Execute o programa:
     ```bash
-    python OEM2FM.py
+    python NL3A.py
     ```
 
 3. Siga as instruções no menu principal para escolher a função desejada.
